@@ -12,7 +12,8 @@ class Timer extends React.Component {
     count: 0,
     increment:0,
     temp1:0,
-    temp2:0
+    temp2:0,
+    incrementText:''
   };
 
   constructor(props) {
@@ -21,7 +22,7 @@ class Timer extends React.Component {
     }
 
     runOnce() {
-        this.state.temp1 = this.state.increment-10;
+        this.state.temp1 = this.state.increment-100;
         this.state.temp2 = this.state.increment;
     }
 
@@ -75,23 +76,30 @@ class Timer extends React.Component {
     let hours = ("0" + Math.floor(timerTime / 3600000)).slice(-2);
 
     return (
-      <div className="Stopwatch">
-        <div className="Stopwatch-header">STOPWATCH : {this.state.id}</div>
-        <div className="Stopwatch-display">
-          {hours} : {minutes} : {seconds} : {centiseconds}
+      <div className="divider-content">
+        <div className="Stopwatch">
+            <div className="Stopwatch-header">STOPWATCH : {this.state.id}</div>
+            <div className="Stopwatch-display">
+            {hours} : {minutes} : {seconds} : {centiseconds}
+            </div>
+            {this.state.timerOn === false && this.state.timerTime === 0 && (
+            <button onClick={this.startTimer}>Start</button>
+            )}
+            {this.state.timerOn === true && (
+            <button onClick={this.stopTimer}>Stop</button>
+            )}
+            {this.state.timerOn === false && this.state.timerTime > 0 && (
+            <button onClick={this.startTimer}>Resume</button>
+            )}
+            {this.state.timerOn === false && this.state.timerTime > 0 && (
+            <button onClick={this.resetTimer}>Reset</button>
+            )}
         </div>
-        {this.state.timerOn === false && this.state.timerTime === 0 && (
-          <button onClick={this.startTimer}>Start</button>
-        )}
-        {this.state.timerOn === true && (
-          <button onClick={this.stopTimer}>Stop</button>
-        )}
-        {this.state.timerOn === false && this.state.timerTime > 0 && (
-          <button onClick={this.startTimer}>Resume</button>
-        )}
-        {this.state.timerOn === false && this.state.timerTime > 0 && (
-          <button onClick={this.resetTimer}>Reset</button>
-        )}
+        <div className="user-info">
+            <label className="info">
+                THIS STOPWATCH WHICH ID : {this.state.id}, WILL BE INCREMENT ONLY ON EVERY => {this.state.incrementText}
+            </label>
+        </div>
       </div>
     );
   }

@@ -34,9 +34,9 @@ render(){
             
             {/* increment refers when to update the timer */}
             <div>
-              <Timer onDataReset={this.handleDataReset} id={1} increment={10000}/>
-              <Timer onDataReset={this.handleDataReset} id={2} increment={1000}/>
-              <Timer onDataReset={this.handleDataReset} id={3} increment={100}/>
+              <Timer onDataReset={this.handleDataReset} id={1} increment={10000} incrementText={'10 seconds'}/>
+              <Timer onDataReset={this.handleDataReset} id={2} increment={1000} incrementText={'1 seconds'}/>
+              <Timer onDataReset={this.handleDataReset} id={3} increment={100} incrementText={'0.1 seconds'}/>
             </div>
 
           {/* label to display total Escaped Time */}
