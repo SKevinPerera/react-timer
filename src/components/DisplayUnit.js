@@ -29,7 +29,7 @@ render(){
     return(
         <div>
             <div className="header-label">
-              <label><b>CODING CHALLENGE : KEVIN PERERA</b></label>
+              <label><b>CODING CHALLENGE : KEVIN PERERA *</b></label>
             </div>
             
             {/* increment refers when to update the timer */}
